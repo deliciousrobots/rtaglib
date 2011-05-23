@@ -1,5 +1,6 @@
-#!/usr/bin/ruby
-$:.unshift(File.dirname(__FILE__)+"/../lib")
+# encoding: UTF-8
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__)+"/../lib"))
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__)+"/../ext"))
 require 'TagLib'
 require 'tmpdir'
 require 'fileutils'
@@ -75,7 +76,8 @@ class RtaglibReadTestCase < Test::Unit::TestCase
     # - audioproperties: bitrate,channels,sampleRate and channels
     # - isNull (null?)
     def test_fileref
-        assert_equal(%w{ogg flac oga mp3 mpc wv spx tta}, TagLib::FileRef.defaultFileExtensions())
+        assert_equal(%w{ogg flac oga mp3 mpc wv spx tta m4a m4b m4p 3g2 mp4 wma asf aif aiff wav}, 
+                     TagLib::FileRef.defaultFileExtensions())
         bitrate={'flac'=>168,'wv'=>235,'mp3'=>48,'mpc'=>41,'ogg'=>80}
         channels={'flac'=>1,'wv'=>1,'mp3'=>1,'mpc'=>2,'ogg'=>1}
 

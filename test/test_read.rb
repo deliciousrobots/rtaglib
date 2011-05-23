@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-$:.unshift(File.dirname(__FILE__)+"/../lib")
-$:.unshift(File.dirname(__FILE__)+"/../ext")
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__)+"/../lib"))
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__)+"/../ext"))
 require 'tagfile'
 require 'test/unit'
 class RTagFileReadTestCase < Test::Unit::TestCase

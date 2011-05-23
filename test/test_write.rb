@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
-require 'ftools'
-$:.unshift(File.dirname(__FILE__)+"/../lib")
-$:.unshift(File.dirname(__FILE__)+"/../ext")
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__)+"/../lib"))
+$LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__)+"/../ext"))
 require 'tagfile'
 require 'test/unit'
 require 'tmpdir'
@@ -14,7 +13,7 @@ class RTagFileWriteTestCase < Test::Unit::TestCase
         FileUtils.chmod(0777, @temp_dir)
         
 		@copy=@temp_dir+"/test_"+sprintf("%06d",rand(10000))+".mp3"
-		File.copy(@original, @copy)
+		FileUtils.cp(@original, @copy)
         FileUtils.chmod(0777, @copy)
 
 		@file=::TagFile::File.new(@copy)
