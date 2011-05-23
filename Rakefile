@@ -96,6 +96,7 @@ begin
     gemspec.email = "claudio@icoretech.org"
     gemspec.homepage = "http://github.com/masterkain/rtaglib"
     gemspec.authors = ["Josh Nichols"]
+    gemspec.require_paths << 'ext'
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: gem install jeweler"
